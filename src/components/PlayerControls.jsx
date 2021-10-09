@@ -4,6 +4,7 @@ import { faPlay ,faPause, faForward, faBackward} from '@fortawesome/free-solid-s
 export default function PlayerControls(props) {
     return (
         <div>
+          
             <button    className="skip-back" onClick={()=> props.SkipSong(false)}>
             <FontAwesomeIcon icon={faBackward} />
             </button>

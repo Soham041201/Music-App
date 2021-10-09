@@ -2,18 +2,21 @@ import React,{useState,useRef, useEffect} from 'react'
 import PlayerDetails from './PlayerDetails'
 import PlayerControls from './PlayerControls'
 import { layer } from '@fortawesome/fontawesome-svg-core';
+import Slider from './Slider'
 function Player(props) {
     
     const audioEl = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-
+    const [audio,setaudio] = useState();
     useEffect(()=>{
         if(isPlaying){
+            setaudio(audioEl.current.currentTime)
+            console.log(audio);
             audioEl.current.play();
         }else{
             audioEl.current.pause();
         }
-    });
+    },);
 
 
     const SkipSong = (forwards=true) =>{
@@ -48,6 +51,7 @@ function Player(props) {
           <PlayerDetails 
                 song={props.song[props.currentSongIndex]}
                 />
+                <Slider duration={audio}/>
             <PlayerControls 
                 isPlaying={isPlaying} 
                 setIsPlaying={setIsPlaying} 
