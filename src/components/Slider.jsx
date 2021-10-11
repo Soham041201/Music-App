@@ -4,7 +4,8 @@ export default function Slider(props) {
   console.log(props.duration);
   let track = document.createElement('audio');
   let slider = document.querySelector('#duration_slider');
-  function handleChange(){
+  function handleChange(){ 
+    //functionality yet to be added
     const slider_position = props.duration * (slider.value / 100);
     track.currentTime = slider_position;
     console.log(track.currentTime);
